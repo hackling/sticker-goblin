@@ -19,13 +19,14 @@ const Sticker = ({ sticker, initialLoad }) => {
     }
   };
 
-  const initialLoadImageSize = (isSmallScreen ? 70 : 120);
+  const initialLoadImageSize = (isSmallScreen ? 60 : 100);
+  const afterInitialLoadImageSize = (isSmallScreen ? 100 : 150);
 
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardMedia
         sx={{
-          height: (initialLoad ? initialLoadImageSize : 190),
+          height: (initialLoad ? initialLoadImageSize : afterInitialLoadImageSize),
           borderRadius: '6px 6px 0 0', // Adjust the value as needed
           overflow: 'hidden',
         }}
