@@ -1,0 +1,103 @@
+[
+  {
+    "name": "Trained Blessed Mind",
+    "image": "https://cards.scryfall.io/normal/front/6/3/633f98c3-ffec-48c0-ac01-d599312fe288.jpg?1675457383",
+    "url": "https://scryfall.com/card/sunf/44/trained-blessed-mind?utm_source=api",
+    "vowels": {
+      "trained": 3,
+      "blessed": 1,
+      "mind": 1
+    }
+  },
+  {
+    "name": "Ancestral Hot Dog Minotaur",
+    "image": "https://cards.scryfall.io/normal/front/3/4/34c3979d-60e7-44b5-bb9f-1b6b0f2b70c3.jpg?1675457204",
+    "url": "https://scryfall.com/card/sunf/23/ancestral-hot-dog-minotaur?utm_source=api",
+    "vowels": {
+      "ancestral": 2,
+      "hot": 1,
+      "dog": 1,
+      "minotaur": 4
+    }
+  },
+  {
+    "name": "Misunderstood Trapeze Elf",
+    "image": "https://cards.scryfall.io/normal/front/e/6/e6952074-d6c2-4fbe-88ca-6d42f83c7ee7.jpg?1675456983",
+    "url": "https://scryfall.com/card/sunf/5/misunderstood-trapeze-elf?utm_source=api",
+    "vowels": {
+      "misunderstood": 4,
+      "trapeze": 2,
+      "elf": 1
+    }
+  },
+  {
+    "name": "Phyrexian Midway Bamboozle",
+    "image": "https://cards.scryfall.io/normal/front/5/d/5daeb14a-dcc5-4761-84a4-a60d22a6c944.jpg?1675457092",
+    "url": "https://scryfall.com/card/sunf/18/phyrexian-midway-bamboozle?utm_source=api",
+    "vowels": {
+      "phyrexian": 4,
+      "midway": 3,
+      "bamboozle": 3
+    }
+  },
+  {
+    "name": "Unglued Pea-Brained Dinosaur",
+    "image": "https://cards.scryfall.io/normal/front/9/5/955c33c6-0cc6-47ec-8f71-8d169c02b243.jpg?1675457392",
+    "url": "https://scryfall.com/card/sunf/45/unglued-pea-brained-dinosaur?utm_source=api",
+    "vowels": {
+      "unglued": 2,
+      "pea-brained": 3,
+      "dinosaur": 4
+    }
+  },
+  {
+    "name": "Eldrazi Guacamole Tightrope",
+    "image": "https://cards.scryfall.io/normal/front/b/8/b8f1abc7-1a86-4e43-8105-10c1c55e65ba.jpg?1675456946",
+    "url": "https://scryfall.com/card/sunf/1/eldrazi-guacamole-tightrope?utm_source=api",
+    "vowels": {
+      "eldrazi": 3,
+      "guacamole": 4,
+      "tightrope": 3
+    }
+  },
+  {
+    "name": "Narrow-Minded Baloney Fireworks",
+    "image": "https://cards.scryfall.io/normal/front/1/b/1b516ae7-2891-40e9-80a1-48ec62171275.jpg?1675457043",
+    "url": "https://scryfall.com/card/sunf/12/narrow-minded-baloney-fireworks?utm_source=api",
+    "vowels": {
+      "narrow-minded": 4,
+      "baloney": 4,
+      "fireworks": 3
+    }
+  },
+  {
+    "name": "Unassuming Gelatinous Serpent",
+    "image": "https://cards.scryfall.io/normal/front/7/9/7985d1dd-32cf-4c83-ae68-ee4961c1e6b9.jpg?1681385067",
+    "url": "https://scryfall.com/card/sunf/36/unassuming-gelatinous-serpent?utm_source=api",
+    "vowels": {
+      "unassuming": 3,
+      "gelatinous": 5,
+      "serpent": 1
+    }
+  },
+  {
+    "name": "Unsanctioned Ancient Juggler",
+    "image": "https://cards.scryfall.io/normal/front/3/b/3bf70946-5a50-4918-bb61-23be7c2cc75a.jpg?1675457053",
+    "url": "https://scryfall.com/card/sunf/13/unsanctioned-ancient-juggler?utm_source=api",
+    "vowels": {
+      "unsanctioned": 5,
+      "ancient": 3,
+      "juggler": 2
+    }
+  },
+  {
+    "name": "Playable Delusionary Hydra",
+    "image": "https://cards.scryfall.io/normal/front/c/2/c27dffce-908c-45cf-bfe5-67af12467321.jpg?1675457266",
+    "url": "https://scryfall.com/card/sunf/30/playable-delusionary-hydra?utm_source=api",
+    "vowels": {
+      "playable": 3,
+      "delusionary": 6,
+      "hydra": 2
+    }
+  }
+]
