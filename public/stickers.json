@@ -15,8 +15,7 @@
     "url": "https://scryfall.com/card/sunf/23/ancestral-hot-dog-minotaur?utm_source=api",
     "vowels": {
       "ancestral": 2,
-      "hot": 1,
-      "dog": 1,
+      "hot dog": 1,
       "minotaur": 4
     }
   },
