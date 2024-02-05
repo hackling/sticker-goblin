@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Typography, Button, ImageList, ImageListItem, ImageListItemBar, Paper } from '@mui/material';
+import Box from '@mui/material/Box';
 import { styled } from '@mui/system';
 import Sticker from './Sticker'; // Adjust the path as needed
 import { useMediaQuery } from '@mui/material';
@@ -13,6 +14,7 @@ const CenteredContainer = styled(Container)({
   alignItems: 'center',
   justifyContent: 'center',
   minHeight: '100vh',
+  backgroundColor: 'rgba(243, 246, 249, 0.9)',
 });
 
 const App = () => {
@@ -27,7 +29,6 @@ const App = () => {
     const fetchStickers = async () => {
       try {
         const response = await fetch('sticker-goblin/stickers.json'); // Adjust the path as needed
-        console.log(response);
         const data = await response.json();
         setStickers(data);
         setShuffledStickers(data)
@@ -42,7 +43,7 @@ const handleRandomSelection = () => {
     const randomizedStickers= [...stickers].sort(() => Math.random() - 0.5);
     const selected = randomizedStickers.slice(0, 3);
     setShuffledStickers(selected);
-    setInitialLoad(true);
+    setInitialLoad(false);
     setResetKey((prevKey) => prevKey + 1); // Update the key to reset the Sticker components
   };
 
@@ -53,9 +54,7 @@ const handleRandomSelection = () => {
       </Button>
       <ImageList cols={defaultCols} gap={16} style={{ width: '100%', maxWidth: '800px' }}>
         {shuffledStickers.map((sticker, index) => (
-          <Paper elevation={0}>
-            <Sticker key={`sticker-${resetKey}-${index}`} sticker={sticker} initialLoad={initialLoad} />
-          </Paper>
+          <Sticker key={`sticker-${resetKey}-${index}`} sticker={sticker} initialLoad={initialLoad} isSmallScreen={isSmallScreen} />
         ))}
       </ImageList>
     </CenteredContainer>

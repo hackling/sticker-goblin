@@ -5,8 +5,10 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import { useMediaQuery } from '@mui/material';
 
 const Sticker = ({ sticker, initialLoad }) => {
+  const isSmallScreen = useMediaQuery('(max-height:400px)');
   const [clickedButtons, setClickedButtons] = React.useState([]);
 
   const handleButtonClick = (key) => {
@@ -17,10 +19,16 @@ const Sticker = ({ sticker, initialLoad }) => {
     }
   };
 
+  const initialLoadImageSize = (isSmallScreen ? 70 : 120);
+
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardMedia
-        sx={{ height: (initialLoad ? 100 : 200) }}
+        sx={{
+          height: (initialLoad ? initialLoadImageSize : 190),
+          borderRadius: '6px 6px 0 0', // Adjust the value as needed
+          overflow: 'hidden',
+        }}
         image={sticker.image}
         title={sticker.name}
         style={{ backgroundPosition: 'top' }}
@@ -33,6 +41,7 @@ const Sticker = ({ sticker, initialLoad }) => {
               size="small"
               onClick={() => handleButtonClick(key)}
               sx={{
+                fontSize: isSmallScreen ? '0.8125em' : '0.7125em',
                 textDecoration: clickedButtons.includes(key) ? 'line-through' : 'none',
                 color: clickedButtons.includes(key) ? 'red' : 'inherit',
               }}
