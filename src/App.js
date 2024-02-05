@@ -28,7 +28,7 @@ const App = () => {
   useEffect(() => {
     const fetchStickers = async () => {
       try {
-        const response = await fetch('sticker-goblin/stickers.json'); // Adjust the path as needed
+        const response = await fetch('https://raw.githubusercontent.com/hackling/sticker-goblin/master/public/stickers.json'); // Adjust the path as needed
         const data = await response.json();
         setStickers(data);
         setShuffledStickers(data)
