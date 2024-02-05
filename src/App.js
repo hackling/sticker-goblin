@@ -1,18 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Typography, Button } from '@mui/material';
+import { Container, Typography, Button, ImageList, ImageListItem, ImageListItemBar, Paper } from '@mui/material';
 import { styled } from '@mui/system';
 
-const CardImage = styled('img')({
-  width: '100%',
-  maxWidth: '300px',
-  marginBottom: '-350px',
-  top: 0,
-  left: 0,
-  zIndex: (props) => props.index * -1, // Ensure higher index means closer to the top
+const CenteredContainer = styled(Container)({
+  padding: '15px',
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  justifyContent: 'center',
+  minHeight: '100vh',
 });
 
 const App = () => {
   const [stickers, setStickers] = useState([]);
+  const [shuffledStickers, setShuffledStickers] = useState(stickers);
 
   useEffect(() => {
     const fetchStickers = async () => {
@@ -21,6 +22,7 @@ const App = () => {
         console.log(response);
         const data = await response.json();
         setStickers(data);
+        setShuffledStickers(data)
       } catch (error) {
         console.error('Error fetching stickers:', error);
       }
@@ -28,18 +30,27 @@ const App = () => {
 
     fetchStickers();
   }, []);
-
-  console.log(stickers)
+const handleRandomSelection = () => { 
+    const randomizedStickers= [...stickers].sort(() => Math.random() - 0.5);
+    const selected = randomizedStickers.slice(0, 3);
+    setShuffledStickers(selected);
+  };
 
   return (
-    <Container maxWidth="sm">
-      <Typography variant="h4" component="h1" gutterBottom>
-        Sticker Goblin
-      </Typography>
-      {stickers.map((sticker, index) => (
-        <CardImage src={sticker.image} alt={sticker.name} index={index} />
-      ))}
-    </Container>
+    <CenteredContainer maxWidth="md">
+      <Button variant="contained" color="primary" onClick={handleRandomSelection}>
+        Randomly Select Stickers
+      </Button>
+      <ImageList cols={3} gap={16} style={{ width: '100%', maxWidth: '800px' }}>
+        {shuffledStickers.map((sticker, index) => (
+          <Paper elevation={3}>
+            <ImageListItem key={index}>
+              <img src={sticker.image} alt={sticker.name} style={{ width: '100%' }} />
+            </ImageListItem>
+          </Paper>
+        ))}
+      </ImageList>
+    </CenteredContainer>
   );
 };
 
