@@ -45,6 +45,10 @@ const handleRandomSelection = () => {
         {shuffledStickers.map((sticker, index) => (
           <Paper elevation={3}>
             <ImageListItem key={index}>
+              <ImageListItemBar
+                position="top"
+                title={sticker.name}
+              />
               <img src={sticker.image} alt={sticker.name} style={{ width: '100%' }} />
             </ImageListItem>
           </Paper>
