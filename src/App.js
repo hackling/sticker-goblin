@@ -2,8 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { Container, Typography, Button, ImageList, ImageListItem, ImageListItemBar, Paper } from '@mui/material';
 import { styled } from '@mui/system';
 import Sticker from './Sticker'; // Adjust the path as needed
+import { useMediaQuery } from '@mui/material';
 
 const CenteredContainer = styled(Container)({
+  overflowX: 'hidden',
+  overflowY: 'hidden',
   padding: '15px',
   display: 'flex',
   flexDirection: 'column',
@@ -14,8 +17,11 @@ const CenteredContainer = styled(Container)({
 
 const App = () => {
   const [stickers, setStickers] = useState([]);
+  const [initialLoad, setInitialLoad] = useState(true);
   const [shuffledStickers, setShuffledStickers] = useState(stickers);
   const [resetKey, setResetKey] = useState(0);
+  const isSmallScreen = useMediaQuery('(max-width:600px)');
+  const defaultCols = isSmallScreen ? 2 : 3;
 
   useEffect(() => {
     const fetchStickers = async () => {
@@ -36,6 +42,7 @@ const handleRandomSelection = () => {
     const randomizedStickers= [...stickers].sort(() => Math.random() - 0.5);
     const selected = randomizedStickers.slice(0, 3);
     setShuffledStickers(selected);
+    setInitialLoad(true);
     setResetKey((prevKey) => prevKey + 1); // Update the key to reset the Sticker components
   };
 
@@ -44,10 +51,10 @@ const handleRandomSelection = () => {
       <Button variant="contained" color="primary" onClick={handleRandomSelection}>
         Randomly Select Stickers
       </Button>
-      <ImageList cols={3} gap={16} style={{ width: '100%', maxWidth: '800px' }}>
+      <ImageList cols={defaultCols} gap={16} style={{ width: '100%', maxWidth: '800px' }}>
         {shuffledStickers.map((sticker, index) => (
-          <Paper elevation={3}>
-            <Sticker key={`sticker-${resetKey}-${index}`} sticker={sticker} />
+          <Paper elevation={0}>
+            <Sticker key={`sticker-${resetKey}-${index}`} sticker={sticker} initialLoad={initialLoad} />
           </Paper>
         ))}
       </ImageList>
