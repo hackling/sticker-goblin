@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Typography, Button, ImageList, ImageListItem, ImageListItemBar, Paper } from '@mui/material';
 import { styled } from '@mui/system';
+import Sticker from './Sticker'; // Adjust the path as needed
 
 const CenteredContainer = styled(Container)({
   padding: '15px',
@@ -14,6 +15,7 @@ const CenteredContainer = styled(Container)({
 const App = () => {
   const [stickers, setStickers] = useState([]);
   const [shuffledStickers, setShuffledStickers] = useState(stickers);
+  const [resetKey, setResetKey] = useState(0);
 
   useEffect(() => {
     const fetchStickers = async () => {
@@ -34,6 +36,7 @@ const handleRandomSelection = () => {
     const randomizedStickers= [...stickers].sort(() => Math.random() - 0.5);
     const selected = randomizedStickers.slice(0, 3);
     setShuffledStickers(selected);
+    setResetKey((prevKey) => prevKey + 1); // Update the key to reset the Sticker components
   };
 
   return (
@@ -44,13 +47,7 @@ const handleRandomSelection = () => {
       <ImageList cols={3} gap={16} style={{ width: '100%', maxWidth: '800px' }}>
         {shuffledStickers.map((sticker, index) => (
           <Paper elevation={3}>
-            <ImageListItem key={index}>
-              <ImageListItemBar
-                position="top"
-                title={sticker.name}
-              />
-              <img src={sticker.image} alt={sticker.name} style={{ width: '100%' }} />
-            </ImageListItem>
+            <Sticker key={`sticker-${resetKey}-${index}`} sticker={sticker} />
           </Paper>
         ))}
       </ImageList>

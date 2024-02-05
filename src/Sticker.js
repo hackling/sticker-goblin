@@ -6,7 +6,17 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
-const Sticker = ({sticker}) => {
+const Sticker = ({ sticker }) => {
+  const [clickedButtons, setClickedButtons] = React.useState([]);
+
+  const handleButtonClick = (key) => {
+    if (!clickedButtons.includes(key)) {
+      setClickedButtons([...clickedButtons, key]);
+    } else {
+      setClickedButtons(clickedButtons.filter((clickedKey) => clickedKey !== key));
+    }
+  };
+
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardMedia
@@ -16,16 +26,22 @@ const Sticker = ({sticker}) => {
         style={{ backgroundPosition: 'top' }}
       />
       <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
-          {sticker.name}
-        </Typography>
+        {Object.entries(sticker.vowels).map(([key, value]) => (
+          <Button
+            key={key}
+            size="small"
+            onClick={() => handleButtonClick(key)}
+            sx={{
+              textDecoration: clickedButtons.includes(key) ? 'line-through' : 'none',
+              color: clickedButtons.includes(key) ? 'red' : 'inherit',
+            }}
+          >
+            {key} [{value}]
+          </Button>
+        ))}
       </CardContent>
-      <CardActions>
-        <Button size="small">Share</Button>
-        <Button size="small">Learn More</Button>
-      </CardActions>
     </Card>
   );
-}
+};
 
 export default Sticker;
