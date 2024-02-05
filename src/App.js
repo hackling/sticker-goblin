@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { Container, Typography, Button } from '@mui/material';
+import { styled } from '@mui/system';
 
-function App() {
+const CenteredContainer = styled(Container)({
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  justifyContent: 'center',
+  minHeight: '100vh',
+});
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <CenteredContainer maxWidth="sm">
+      <Typography variant="h4" component="h1" gutterBottom>
+        Hello, Material-UI!
+      </Typography>
+      <Button variant="contained" color="primary">
+        Click me
+      </Button>
+    </CenteredContainer>
   );
-}
+};
 
 export default App;
