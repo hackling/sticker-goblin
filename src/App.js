@@ -13,7 +13,7 @@ const CenteredContainer = styled(Container)({
   flexDirection: 'column',
   alignItems: 'center',
   justifyContent: 'center',
-  maxHeight: '100%',
+  maxHeight: '100vh',
   backgroundColor: 'rgba(243, 246, 249, 0.9)',
 });
 
